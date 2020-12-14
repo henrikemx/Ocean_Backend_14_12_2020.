@@ -42,22 +42,22 @@ app.get('/mensagens', (req, res) => {
 
 // [READ] Single - Ler mensagem Individual
 app.get('/mensagens/:id', (req, res) => {
-  const id = +req.params.id;
+  const id = +req.params.id - 1;
   const mensagem = mensagens[id];
   res.send(mensagem);
 });
 
 // [UPDATE] - Atualiza/Editar uma Mensagem
 app.put('/mensagens/:id', (req, res) => {
-  const id = +req.params.id;
+  const id = +req.params.id - 1;
   const novoTexto = req.body.texto;
-  mensagens[id] = novoTexto;
-  res.send('Mensagem atualizada com sucesso !!');
+  mensagens[id].texto = novoTexto;
+  res.send(mensagens[id]);
 });
 
 // [DELETE] - Remover uma mensagem
 app.delete('/mensagens/:id', (req, res) => {
-  const id = +req.params.id;
+  const id = +req.params.id - 1;
 
   delete mensagens[id];
 
