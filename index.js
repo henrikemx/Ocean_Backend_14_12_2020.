@@ -4,7 +4,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/mensagens', (req, res) => {
   res.send('Hello World!')
 });
 
@@ -26,10 +26,13 @@ app.get('/mensagens', (req, res) => {
 });
 
 app.post('/mensagens', (req, res) => {
-  console.log(req.body);
-  res.send('Criar uma mensagem.')
+  const texto = req.body.texto;
+  mensagem.push(texto);
+  res.send('Mensagem criada com sucesso !!');
 });
 
-app.listen(3001,() => {
-  'Servidor rodando no endereço http://localhost:3001'
+const port = 3000;
+
+app.listen(port,() => {
+  console.info(`Servidor rodando no endereço http://localhost:${port}`)
 });
