@@ -14,14 +14,14 @@ app.get('/', (req, res) => {
 // Criar, Ler (Tudo ou Individual), Atualizar e Remover
 
 const mensagens = [
-  {
-    id: 1,
-    texto: 'Essa é a primeira mensagem'
-  },
-  {
-    id: 2,
-    texto: 'Essa é a segunda mensagem'
-  }
+  // {
+  //   id: 1,
+  //   texto: 'Essa é a primeira mensagem'
+  // },
+  // {
+  //   id: 2,
+  //   texto: 'Essa é a segunda mensagem'
+  // }
 ];
 
 // [CREATE] - Criar uma mensagem
@@ -40,14 +40,14 @@ app.get('/mensagens', (req, res) => {
   res.send(mensagens.filter(Boolean));
 });
 
-// [READ] Single - Ler mensagem Individual
+// [READ] Single - Ler mensagem Individual pelo ID
 app.get('/mensagens/:id', (req, res) => {
   const id = +req.params.id - 1;
   const mensagem = mensagens[id];
   res.send(mensagem);
 });
 
-// [UPDATE] - Atualiza/Editar uma Mensagem
+// [UPDATE] - Atualiza/Editar uma Mensagem pelo ID
 app.put('/mensagens/:id', (req, res) => {
   const id = +req.params.id - 1;
   const novoTexto = req.body.texto;
@@ -55,7 +55,7 @@ app.put('/mensagens/:id', (req, res) => {
   res.send(mensagens[id]);
 });
 
-// [DELETE] - Remover uma mensagem
+// [DELETE] - Remover uma mensagem pleo ID
 app.delete('/mensagens/:id', (req, res) => {
   const id = +req.params.id - 1;
 
